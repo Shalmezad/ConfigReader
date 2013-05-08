@@ -19,8 +19,17 @@ bool ConfigReader::readValues(string filename)
         while(configFile.good()){
             //grab a line of input
             getline(configFile, inputLine);
-            //TODO: Split the line at '='
-            //TODO: add the configurations to the vector.
+            //create a new configuration to add.
+            configuration newConfig;
+            //Find the = sign.
+            int equalsSign = inputLine.find("=");
+            //is there an = sign?
+            if(equalsSign != string::npos){
+                //split the line.
+                newConfig.configName = inputLine.substr(0,equalsSign);
+                newConfig.configValue = inputLine.substr(equalsSign+1);
+                configs.push_back(newConfig);
+            }
         }
         //don't forget to close the file when done
         configFile.close();
