@@ -15,6 +15,7 @@ class ConfigReader
     public:
         ConfigReader();
         bool readValues(std::string);
+        std::string getConfig(std::string);
     private:
         std::vector<configuration> configs;
 };
