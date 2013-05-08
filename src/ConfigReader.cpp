@@ -46,7 +46,10 @@ string ConfigReader::getConfig(string varName)
     //search the vector for the configuration.
     for(int a=0; a<configs.size(); a++){
         //do we have a match?
-        //TODO: check for match.
+        if(configs[a].configName == varName){
+            //we have a match.
+            return configs[a].configValue;
+        }
     }
     return "";
 }
