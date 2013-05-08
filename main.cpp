@@ -1,9 +1,11 @@
 #include <iostream>
+#include "include/ConfigReader.h"
 
 using namespace std;
 
 int main()
 {
-    cout << "Hello world!" << endl;
+    ConfigReader cr;
+    cout<<cr.readValues("myConfig.txt");
     return 0;
 }
